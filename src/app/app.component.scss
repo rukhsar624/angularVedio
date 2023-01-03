@@ -10,7 +10,9 @@
   overflow: hidden;
   width: 100%;
 }
-
+.dropdown-menu{
+  display: block;
+}
 p {
   color: #fff;
 }
@@ -132,9 +134,9 @@ p {
   // background-color: #1f1f1f;
 }
 
-.left .body .conversation .card-conversation:hover {
-  // background-color: rgba(0, 0, 0, .04);
-}
+// .left .body .conversation .card-conversation:hover {
+//   // background-color: rgba(0, 0, 0, .04);
+// }
 
 .data-conversation {
   padding: 13px;
@@ -260,13 +262,13 @@ p {
   padding: 0px;
 }
 
-.right .body .message .body-card.my {
-  // background-color: rgba(0, 0, 0, 0.2);
-}
+// .right .body .message .body-card.my {
+//   // background-color: rgba(0, 0, 0, 0.2);
+// }
 
-.right .body .message .body-card.other {
-  // background-color: rgba(0, 0, 0, .2);
-}
+// .right .body .message .body-card.other {
+//   // background-color: rgba(0, 0, 0, .2);
+// }
 
 .right .body .message .body-card .header-message {
   padding: 1pt 0pt 0pt 3pt;

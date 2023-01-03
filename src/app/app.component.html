@@ -218,15 +218,15 @@
               Call</button>
             <button mat-raised-button color="warn" class="m-2" [disabled]="!(isCallStarted$ | async)"
               (click)="endCall()">End Call</button> -->
-              <div class="input-group">
+              <div class="input-group position-relative;">
                 <span class="input-group-btn">
-                    <button type="button" id="addressBook" data-toggle="dropdown" class="btn btn-success dropdown-toggle">
-                    <span class="fa fa-address-book" aria-hidden="true"></span>
-                    </button>
-                    <ul class="dropdown-menu" id="addressBookDropDown">
-                        <li><a id="client1" href="#">No other connected users</a></li>
-                    </ul>
-                </span>
+                  <button type="button" id="addressBook" data-toggle="dropdown" class="btn btn-success dropdown-toggle">
+                  <span class="fa fa-address-book" aria-hidden="true"></span>
+                  </button>
+                  <ul class="dropdown-menu" id="addressBookDropDown">
+                      <li><a id="client1" href="#">No other connected users</a></li>
+                  </ul>
+              </span>
                 <input type="text" id="number" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
                 <span class="input-group-btn">
                     <button type="button" id="callAudio" class="btn btn-success">
