@@ -321,6 +321,7 @@ function addReleaseStreamButton(streamId) {
 
 //Audio Call establishment
 $("#callAudio").click(function () {
+  console.log("hello");
   var contact = connectedSession.getOrCreateContact($("#number").val());
   var callOptions = {
     mediaTypeForOutgoingCall: "AUDIO",
