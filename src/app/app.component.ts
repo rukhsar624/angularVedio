@@ -4,8 +4,12 @@ import { Observable, of } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 import { CallService } from './call.service';
 import { CallInfoDialogComponents, DialogData } from './dialog/callinfo-dialog.component';
-// import * as $ from 'jquery';
+declare var name: any;
+import * as $ from 'jquery';
 import './calljs/call.js'
+// import * as $ from 'jquery';
+// declare var $: any;
+
 
 @Component({
   selector: 'app-root',
@@ -27,6 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
   show = true;
   data = { name: 'John', img: '../assets/image/profile2.jpg' };
   ngOnInit(): void {
+    new name();
     this.callService.localStream$
       .pipe(filter(res => !!res))
       .subscribe(stream => this.localVideo.nativeElement.srcObject = stream)

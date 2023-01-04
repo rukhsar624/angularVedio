@@ -3,7 +3,7 @@
 apiRTC.setLogLevel(10);
 
 var connectedSession = null;
-
+console.log("hello1234");
 function showAcceptDeclineButtons() {
   document.getElementById("accept").style.display = "inline-block";
   document.getElementById("decline").style.display = "inline-block";
@@ -15,7 +15,6 @@ function hideAcceptDeclineButtons() {
   document.getElementById("accept").style.display = "none";
   document.getElementById("decline").style.display = "none";
 }
-
 function selectPhonebookItem(idItem) {
   $("#number").val(idItem);
 }
@@ -196,7 +195,7 @@ function callInvitationProcess(invitation) {
   showAcceptDeclineButtons();
 
   // Add listeners
-  $("#accept").click(function () {
+  $("#accept").on('click' ,function () {
     //==============================
     // ACCEPT CALL INVITATION
     //==============================
@@ -221,7 +220,7 @@ function callInvitationProcess(invitation) {
     hideAcceptDeclineButtons();
   });
 
-  $("#decline").click(function () {
+  $("#decline").on('click' ,function () {
     // Decline call invitation
     invitation.decline();
     // Hide accept/decline buttons
@@ -318,9 +317,9 @@ function addReleaseStreamButton(streamId) {
       ')" />'
   );
 }
-
 //Audio Call establishment
-$("#callAudio").click(function () {
+$("#callAudio").on('click',function () {
+  alert("The paragraph was clicked.");
   console.log("hello");
   var contact = connectedSession.getOrCreateContact($("#number").val());
   var callOptions = {
@@ -334,9 +333,8 @@ $("#callAudio").click(function () {
     console.warn("Cannot establish call");
   }
 });
-
 //Call establishment
-$("#callVideo").click(function () {
+$("#callVideo").on('click',function () {
   var contact = connectedSession.getOrCreateContact($("#number").val());
   var call = contact.call();
   if (call !== null) {
@@ -347,8 +345,9 @@ $("#callVideo").click(function () {
   }
 });
 
+
 //ScreenSharing establishment
-$("#shareScreen").click(function () {
+$("#shareScreen").on('click',function () {
   console.log("MAIN - Click screenCall");
   var contact = connectedSession.getOrCreateContact($("#number").val());
   var callConfiguration = {};
