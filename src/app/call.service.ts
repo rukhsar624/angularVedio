@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Peer from 'peerjs';
-import { BehaviorSubject, Subject } from 'rxjs';
+// import { BehaviorSubject, Subject } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { io } from "socket.io-client";
+import { Subject } from 'rxjs';
 // import * as $ from 'jquery';
 import './calljs/call.js'
 @Injectable()
@@ -20,8 +23,26 @@ export class CallService {
 
     private isCallStartedBs = new Subject<boolean>();
     public isCallStarted$ = this.isCallStartedBs.asObservable();
-
+ 
+    public message$: BehaviorSubject<string> = new BehaviorSubject('');
+    public static logout: Subject<any> = new Subject<any>();
     constructor(private snackBar: MatSnackBar) { }
+    socket = io("http://localhost:3000");
+  public sendMessage(message:any) {
+  console.log(this.socket.emit('message', message));
+  console.log(this.socket,"hello");
+  localStorage.setItem("socketId",this.socket.id)
+  }
+  public getNewMessage = () => {
+    this.socket.on('message', (message) =>{
+
+      this.message$.next(message);
+
+
+    });
+
+    return this.message$.asObservable();
+};
 
     public initPeer(): string {
         if (!this.peer || this.peer.disconnected) {
@@ -135,6 +156,8 @@ export class CallService {
         this.peer?.disconnect();
         this.peer?.destroy();
     }
+   
+
 
 
 

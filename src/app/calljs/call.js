@@ -18,6 +18,10 @@ function hideAcceptDeclineButtons() {
 function selectPhonebookItem(idItem) {
   $("#number").val(idItem);
 }
+function acceptCall(){
+  console.log("hello");
+}
+
 
 function updateAddressBook() {
   console.log("updateAddressBook");

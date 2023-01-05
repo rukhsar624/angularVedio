@@ -12,8 +12,15 @@ import { FormsModule } from '@angular/forms';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CallService } from './call.service';
+// import { SocketIoModule ,SocketIoConfig } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
 // import apiRTC from '@apirtc/apirtc';
-
+// const config: SocketIoConfig = {
+// 	url: environment.socketUrl, // socket server url;
+// 	options: {
+// 		transports: ['websocket']
+// 	}
+// }
 
 
 @NgModule({
@@ -32,6 +39,7 @@ import { CallService } from './call.service';
     MatInputModule,
     ClipboardModule,
     MatSnackBarModule,
+    // SocketIoModule.forRoot(config),
     // apiRTC
 
   ],
